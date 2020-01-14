@@ -1,11 +1,9 @@
 <!-- User Profile -->
 <div id="profile">
   {% assign profile = site.theme_settings.profile %}
-  <a href="{{ site.baseurl }}/portfolio">
-    <div class="img-wrap">
-      <img src="{{ site.baseurl }}/{{ profile.image }}" alt="profile-image">
-    </div>
-  </a>
+  <div class="img-wrap">
+    <img src="{{ site.baseurl }}/{{ profile.image }}" alt="profile-image">
+  </div>
   <p class="username">{{ profile.username }}</p>
   <p class="description">{{ profile.description }}</p>
 
