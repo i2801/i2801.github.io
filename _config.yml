@@ -13,11 +13,11 @@ theme_settings :
     username : i2801
     description : minimalist
     experience :
-      - start : 1995-01-01
+      - start : 0-0-0
         end :
         experience : i2801
     skills :
-      - skill : Full Stack Developer
+      - skill : Do Not Do Anything.
         value : 100  # Percent value
 
   # Icons
