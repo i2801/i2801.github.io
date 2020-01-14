@@ -1,39 +1,49 @@
-# Site settings
-title: i2801 | Creative Technologist
-description: "minimalist"
-url: "https://i2801.github.io"
-author:
-  name: "i2801"
-  email: "i28011@gmail.com"
-  url: "https://i2801.github.io"
+# Site Settings
+baseurl: ""
+url : "https://i2801.github.io"
 
-# Build settings
-baseurl: "" # Change this to your relative path (ex: /blog/), or leave just a /
-markdown: kramdown
-source: .
-destination: ./_site
-permalink: /:title
-paginate: 8
-paginate_path: /page:num/
+# Blog Settings
+theme_settings :
+  title : i2801
+  favicon : assets/favicon.ico
 
-# Default values
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
+  # Profile Settings
+  profile :
+    image : assets/img/i2801.jpg
+    username : i2801
+    description : minimalist
+    experience :
+      - start : 1995-01-01
+        end :
+        experience : i2801
+    skills :
+      - skill : Full Stack Developer
+        value : 100  # Percent value
 
-# Plugins
-gems:
-  - jekyll-paginate
-  - jekyll-sitemap
+  # Icons
+  icons :
+    email:  # Full email address, e.g. "sample@google.com"
+    linkedin:  # Full URL
+    github: i2801
+    gitlab:
+    bitbucket:
+    google_plus:
+    twitter:
+    youtube:
+    facebook:
+    instagram:
 
-# Custom variables
-version: "1.0.0"
+  # Disqus
+  disqus_shortname :
 
-# Options
-custom_header: false
-custom_nav_footer: false
-reverse: false
+# Pagination
+paginate: 5
+paginate_path: "blog/page:num"
+
+# Build Ssttings
+sass:
+  sass_dir: _sass
+  style: :compressed
+gems: [jekyll-paginate]
+bootstrap:
+  assets: true

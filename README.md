@@ -1,131 +1,207 @@
-## About
-Monochrome is a minimal, responsive, ready to use Jekyll theme for blogging. [Demo](https://dyutibarma.github.io/monochrome/)
-(Built on top of Emerald Jekyll theme)
+# Grape-Theme
 
-## Features
+![home](./assets/img/home.png)
 
-- Completely responsive and mobile first
-- Clean SEO friendly URLs, auto-generated from post title (no messy dates in the url)
-- SEO title/description integration
-- Sitemap ready
-- Pagination support
-- Mobile friendly navigation menu
-- Easy customization for header, footer, navigation links, colors, favicon etc
-- Default Monochrome Color Palette - black, white, greys
-- About page
-- 404 page
-- ..and a lot more
+블로그뿐만 아니라 포트폴리오 페이지도 지원하는 Grape-Theme를 자유롭게 사용하세요.
 
-## Install/Setup Jekyll
+Welcome to Grape Theme!  It is good for a portfolio as well as a blog.
+<br>
+Customize Grape-Theme and use it for free.
 
-(Skip if you already have Jekyll 2.2)
+[Demo](https://grape-theme.netlify.com)
 
-1. Make sure Ruby 2.2 is installed 
+
+
+## Installation
+
+1. Fork and clone the Grape Theme repo
+
+   ```
+   git clone https://github.com/naye0ng/Grape-Theme.git
+   ```
+
+2. Install Jekyll 
+
+   ```
+   gem install jekyll
+   ```
+
+3. Install the theme's dependencies
+
+   ```
+   bundle install
+   ```
+
+4. Update `_config.yml` and `projects.yml` with your own settings.
+
+5. Run the Jekyll server
+
+   ```
+   bundle exec jekyll serve
+   ```
+
+   
+
+## Customizing
+
+Grape-Theme에서는 자랑할 만한 두 가지 기능을 제공합니다. 홈 화면의 프로필 섹션과 포트폴리오 페이지의 프로젝트, 상세 프로필 기능이 그것 입니다. 이 모든 기능들은  `_config.yml` 와 `projects.yml` 파일을 수정하는 것만으로도 충분합니다.
+
+Grape-Theme has two great features: the profile section and the project section of the portfolio page. Just by changing  `_config.yml` and `projects.yml` , you can use all of these features.
+
+
+
+### Blog Settings
+
+기본적인 블로그 설정은 `config.yml` 에서 가능합니다.
+
+The blog configuration is available in `config.yml`.
+
+#### Site configuration
+
 ```
-sudo apt-get install ruby2.2 (sudo apt-get install ruby-full)
-sudo apt-get install ruby2.2-dev
-```
-2. Install bundle: `sudo gem install bundler`
-3. Install jekyll: `sudo gem install jekyll`
+baseurl: "{subpath}"
+url : "https://{username}.github.io"
 
-### Resources
-
-- We found the jekyll tutorials on youtube very quick and useful to get started
-- [Jekyll documentation](http://jekyllrb.com)   
-
-
-## Install Monochrome dependencies
-
-```
-sudo gem install jekyll-paginate
-sudo gem install jekyll-sitemap
-
+theme_settings :
+  title : {blog title}
 ```
 
-## Get Started with Monochrome
-
-### Option 1 
-
-- Fork this repository
-- Clone the forked repository to your local machine to make changes: git clone https://github.com/your-github-username/monochrome.git)
-- (Optional) Change the 'baseurl' value in the 'config.yml' file, from '/blog' to your preferred directory/project name (example '/xyz' or '/' to install in root)
-- Run 'jekyll serve' and open browser to 'localhost:4000/blog/' to see your changes
-- (Optional) Host with github pages
-
-Note: If you fork the repository, your version of the repository will not be searchable. If you want searchability, we suggest you use the next option.
 
 
-### Option 2
+#### Profile Settings
 
-- Simply download the .zip folder from the repository github page
-- Extract the contents from the .zip folder into your local folder
-- cd into monochrome/
-- Run 'jekyll serve' and open browser to 'localhost:4000/blog/' to see your changes
-- Create a repository in github and push the files
-- (Optional) Host with github pages
+간단한 프로필 정보는 홈 화면에서 출력되며, experience 및 skills 부분은 포트폴리오 페이지에서 함께 보여집니다.
 
-## Write a Post
+Profile is displayed on the index page, and also experience and skills are displayed on the portfolio page.
 
-- cd into  ``_posts/``
-- create new file with format yyyy-mm-dd-title-of-post.md
-- add title/description (refer any of the test posts)
-- add markdown and save
+```
+profile :
+  image : assets/img/{prorile image}
+    username : {username}
+    description : 
+    experience :
+      - start :
+        end : 
+        experience : {company name}, {title}
+     skills : 
+      - skill : 
+        value : 85  # Percent value
+```
 
 
-## Customization Options
 
-You can customize this layout using instructions below. 
+#### Pagination
 
-### Header/Footer/Navigation
+한 페이지에서 보여질 포스팅 개수를 정의합니다.
 
-Set a custom header tag by setting the related option in the ``_config.yml`` file to "true". Then insert your custom code into the ``header-custom.html`` file.
-In the same way, you can customize the footer of the navigation menu, by setting to "true" the related option and put your code into the ``nav-footer-custom.html`` file.
-Moreover select a reverse option that allows to move the navigation menu to the left side, by setting it to "true".
+Defines the number of posts to be shown on one page.
+
+```
+paginate: 5
+```
+
+
+
+#### Disqus
+
+[Disqus shortname](https://help.disqus.com/en/articles/1717111-what-s-a-shortname)을 설정하고, 포스팅 속성에 `comments : True` 를 추가하면 블로그 글에서 댓글을 사용할 수 있습니다.
+
+you can use the comments by following [document](https://help.disqus.com/en/articles/1717111-what-s-a-shortname) and adding a `comments : True` 
+
+``` 
+disqus_shortname :
+```
+
+
+
+### Portfolio Settings
+
+![home](./assets/img/portfolio.png)
+
+프로젝트 세팅은 `_data/projects.yml`에서 가능합니다.
+
+The Project configuration is available in `_data/projects.yml`.
+
+포트폴리오 페이지에서는 프로젝트 목록과 상세보기를 모달로 지원합니다. 물론 상세보기는 선택적이며, 상세값이 `modal : False`인 경우 모달 버튼은 생성되지 않습니다.
+
+The portfolio page provides projects and detailed views by modal.   If `modal : False` is selected, modal will not be displayed on site. 
+
+- **print** : 
+  
+  -  `print : True` 를 선택한다면, 블로그의 홈 화면에서도 프로젝트의 정보가 출력됩니다.
+  - If `print : True` is selected, it will be displayed on landing page
+  
+   ![print project](./assets/img/print-project.png)
+  
+- **modal** 
+  - `modal : True` 를 선택한다면 모달 버튼이 활성와 됩니다.
+  
+  - If `modal : True` is selected, modal will be displayed on the Portfolio page
+  
+    ![home](./assets/img/modal.png)
+
+```
+print : True
+modal : True  
+```
+당신의 프로젝트에 대한 링크와 상세 설명을 아래와 같이 추가하세요.
+
+Add details(link, description) about your projects
+
+```
+url : https://github.com/naye0ng/Grape-Theme # Full URL
+image : "portfolio.png" # path: assets/project/
+date : 2019.06.09 - 2019.07.11
+title : 
+summary : 
+description :  
+# modal contents
+contents :
+  - title :
+    image :      	    
+    description : 
+```
+
+
 
 ### Colors
 
-The basic colors are set into the ``base.scss`` file:
-- $background-color: used for background and links in the navigation menu
-- $text-color: used for text and title in posts and pages 
-- $text-light-color: used for text lighter than text-color
-- $text-dark-color: used for text darker than text-color
+블로그의 컬러들은 `_sass/base/_variable.scss` 에서 한번에 변경이 가능합니다.
 
-To customize the colors, just set the values in HEX, RGB (or RGBa) or any other format accepted by CSS.
+You can change colors at once. colors are in `_sass/base/_variable.scss`
 
-### Navigation menu
 
-The links inside the navigation menu are autogenerated from pages having the layout set to ``page``.
-You can set custom links, by putting in the ``<a>`` tag into the ``link.html`` file.
 
-### Branch
-There are two branches: 
-- ``master``: is for development.
-- ``gh-pages``: is only for demo site.  
+## Posts in Grape theme
 
-### Baseurl
+이 블로그의 모든 포스팅 스타일은  `_sass/base/_utility.scss` 에 정의되어 있으며 [Demo page](https://grape-theme.netlify.com/2019/06/08/markdown-and-html.html)와 [Demo page](https://grape-theme.netlify.com/2019/06/09/grape-theme-style.html)에서 여러 태그들의 출력을 확인할 수 있습니다.
 
-You can change the 'baseurl' value in the 'config.yml' file, from '/monochrome' to your preferred directory/project name (example '/xyz' or '/' to install in root)
+You can confirm how to draw tags at [here](https://grape-theme.netlify.com/2019/06/08/markdown-and-html.html) and [here](https://grape-theme.netlify.com/2019/06/09/grape-theme-style.html)
 
-### Typography
+### Create a new post
 
-To maintain the vertical rhythm, it has been applied a **Typographic scale** as a modular scale, with a baseline set to 24px. To maintain this rhythm you need to insert elements like image, video or other contents with a 24px (or multiple) height as refer.
+1. Create a `.md` inside `_posts` folder
 
-## Resources
+   ```
+   2019-07-11-grape-theme.md
+   ```
+   > 한글로 파일 이름을 만드는 경우, 구글 검색을 붙였을때 문제가 발생합니다. 되로록 영어를 사용해주세요:D
+2. Write the [Front Matter](https://jekyllrb.com/docs/front-matter/) and content in the file.
 
-- We found the jekyll tutorials on youtube very quick and useful to get started
-- [Jekyll documentation](http://jekyllrb.com)   
+   ```
+   ---
+   layout: post
+   title: title
+   subtitle : subtitle
+   tags: [tag1, tag2]
+   author: 
+   comments : 
+   ---
+   ```
 
-## Todo
 
-- Google Analytics integration
-- Footer to stick to bottom even when content is less
-
-## Author
-
-### TheReviewIndex
-
-- Dyuti Barma
-- Web site: [Review Aggregation and Summary Site for India - TheReviewIndex.com](https://thereviewindex.com)
 
 ## License
-Released under [MIT License](license.md).
+
+The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+

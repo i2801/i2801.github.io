@@ -1,24 +1,32 @@
-<header id="header" class="parent justify-spaceBetween">
-  <div class="inner w100 relative">
-    <span class="f-left">
-      <a href="{{ site.baseurl }}/">
-        <h1>
-          <span>i2801</span>
-        </h1>
+{% assign _url = page.url | split: "/" %}
+{% assign current = _url[-1] | split: "." %}
+<header>
+  <nav>
+    <ul>
+      {% case current[0] %}
+      {% when 'tags'%}
+      <!-- tags -->
+      <a href="{{ site.url }}">
+        <li class="btn-nav">Blog</li>
       </a>
-    </span>
-    <span id="nav-links" class="absolute right bottom">
-      <!-- Nav pages -->
-      {% for page in site.pages %}
-      {% if page.layout == "page" %}
-      <a href="{% if site.baseurl == "/" %}{{ page.url }}{% else %}{{ page.url | prepend: site.baseurl }}{% endif %}"
-        title="{{ page.title }}">{{ page.title }}</a>
-      {% endif %}
-      {% endfor %}
-
-      <!-- Nav links -->
-      {% include link.html %}
-
-    </span>
-  </div>
+      <li class="current">Tags</li>
+      <!-- portfolio -->
+      {% when 'portfolio'%}
+      <a href="{{ site.url }}">
+        <li class="btn-nav">Blog</li>
+      </a>
+      <a href="{{ site.url }}/tags">
+        <li class="btn-nav">Tags</li>
+      </a>
+      {% else %}
+      <!-- others -->
+      <a href="{{ site.url }}">
+        <li class="current btn-nav">Blog</li>
+      </a>
+      <a href="{{ site.url }}/tags">
+        <li class="btn-nav">Tags</li>
+      </a>
+      {% endcase %}
+    </ul>
+  </nav>
 </header>
