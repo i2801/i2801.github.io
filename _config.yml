@@ -34,7 +34,7 @@ theme_settings :
     instagram:
 
   # Disqus
-  disqus_shortname : i2801-blog
+  disqus_shortname : "i2801-blog"
 
 # Pagination
 paginate: 5
