@@ -34,7 +34,7 @@ theme_settings :
     instagram:
 
   # Disqus
-  disqus_shortname :
+  disqus_shortname : seokhun_lee
 
 # Pagination
 paginate: 5

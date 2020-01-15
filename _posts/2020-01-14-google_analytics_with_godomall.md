@@ -4,7 +4,7 @@ title: 고도몰 - 구글 애널리틱스 전자상거래 코드
 subtitle :
 tags: [javascript, godomall]
 author: i2801
-comments : False
+comments : true
 ---
 
 고도몰 솔루션을 이용하는 쇼핑몰에 구글 애널리틱스 전자상거래 코드를 삽입 시 아래와 같이 코드를 작성해야 정상적으로 동작을 한다. (결제완료 페이지에 삽입)
