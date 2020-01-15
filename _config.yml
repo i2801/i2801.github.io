@@ -34,7 +34,7 @@ theme_settings :
     instagram:
 
   # Disqus
-  disqus_shortname : seokhun_lee
+  disqus_shortname : i2801-blog
 
 # Pagination
 paginate: 5
