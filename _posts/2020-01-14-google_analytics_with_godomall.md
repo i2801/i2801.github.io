@@ -7,6 +7,8 @@ author: i2801
 comments : true
 ---
 
+![hashids.js](/assets/post/godo_google.png)
+
 고도몰 솔루션을 이용하는 쇼핑몰에 구글 애널리틱스 전자상거래 코드를 삽입 시 아래와 같이 코드를 작성해야 정상적으로 동작을 한다. (결제완료 페이지에 삽입)
 
 *해당 코드는 Google Tag Implementation Team 에서 제공받은 고도몰 전용코드이다.*
